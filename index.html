@@ -4,110 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temu OAU Hub - Smart Procurement</title>
-    <script src="https://tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Core Styling Core -->
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --orange: #f97316;
+            --emerald: #10b981;
+            --border: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            padding-bottom: 80px;
+        }
+        header {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            border-b: 1px solid var(--border);
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            color: var(--orange);
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.2; }
+        .highlight { color: var(--orange); }
+        .lead { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem auto; }
+        .btn-wa {
+            display: inline-block;
+            background-color: var(--emerald);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+            transition: transform 0.2s;
+        }
+        .btn-wa:hover { transform: translateY(-2px); }
+        .section { padding: 4rem 1rem; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 1.75rem; font-weight: 800; margin-bottom: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background-color: var(--bg-card); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); position: relative; }
+        .card-safe { border-color: rgba(16, 185, 129, 0.4); }
+        .card-badge { position: absolute; top: -12px; right: 1rem; background: rgba(16, 185, 129, 0.2); color: var(--emerald); font-size: 11px; padding: 2px 8px; border-radius: 50px; font-weight: bold; border: 1px solid var(--emerald); }
+        .card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: white; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; }
+        .pricing-section { background: rgba(30, 41, 59, 0.5); border-y: 1px solid var(--border); padding: 4rem 1rem; text-align: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; max-width: 700px; margin: 2rem auto 0 auto; }
+        .price-box { background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; text-align: left; }
+        .price-box span { font-size: 1.25rem; font-weight: 900; color: var(--orange); }
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid var(--border); }
+    </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-orange-500 selection:text-white">
+<body>
 
     <!-- Hero Section -->
-    <header class="relative overflow-hidden bg-gradient-to-b from-slate-800 to-slate-900 py-20 px-4 border-b border-slate-800">
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-orange-400 bg-orange-400/10 rounded-full mb-4 border border-orange-500/20">
-                <i class="fa-solid fa-shield-halved text-[10px]"></i> Secure OAU & Environs Concierge
-            </span>
-            <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
-                Shop Temu Without Limits, <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">Risk, or Stress.</span>
-            </h1>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">
-                Stuck at the ₦20k limit? Scared of online scams? Too busy with classes to shop? We handle the bulk pooling, the order stress, and secure your money.
-            </p>
-            <a href="https://wa.me/+2348147974619" 
-               target="_blank" 
-               class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5 duration-200">
-                <i class="fa-brands fa-whatsapp text-xl"></i> Chat with an Agent Now
-            </a>
-        </div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-orange-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <header>
+        <div class="badge">Modomo & OAU Student Service</div>
+        <h1>Want to Buy Cheap Items on Temu but Stuck at the <span class="highlight">₦20,000 Limit?</span></h1>
+        <p class="lead">Don't waste money buying things you don't need just to check out. Join our Modomo Bulk Pool, order single items smoothly, or pay securely on delivery.</p>
+        <a href="https://wa.me/+2348147974619" target="_blank" class="btn-wa">
+            Send Your Item Link/Image Now
+        </a>
     </header>
 
     <!-- The 3 Pillars of Solutions -->
-    <section class="py-16 px-4 max-w-6xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">We Solve Your Shopping Bottlenecks</h2>
-        <p class="text-center text-slate-400 text-sm max-w-md mx-auto mb-12">No matter your obstacle, we have structured a safe path for you to get factory-priced items.</p>
+    <section class="section">
+        <h2 class="section-title">We Solve Your Shopping Bottlenecks</h2>
         
-        <div class="grid md:grid-cols-3 gap-6 items-stretch">
+        <div class="grid-3">
             <!-- Limit Bypass -->
-            <div class="bg-slate-800/40 border border-slate-700/60 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-4">
-                        <i class="fa-solid fa-boxes-packing text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">The ₦20k Limit Bypass</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Want a single item worth ₦3,000? Don't buy ₦17,000 worth of trash just to check out. Drop your link, pay into our pool, and piggyback on our bulk clearance slot.
-                    </p>
-                </div>
+            <div class="card">
+                <h3>The ₦20k Limit Bypass</h3>
+                <p>Want a single item worth ₦3,000? Don't buy ₦17,000 worth of extra items just to check out. Drop your link, pay into our pool, and piggyback on our bulk clearance slot easily.</p>
             </div>
 
             <!-- Skeptics Protection -->
-            <div class="bg-slate-800/40 border border-emerald-500/20 p-6 rounded-2xl flex flex-col justify-between relative">
-                <span class="absolute -top-2.5 right-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Safe Option</span>
-                <div>
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4">
-                        <i class="fa-solid fa-user-shield text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Zero-Scam Guarantee</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Feeling skeptical? Pay a **70% commitment deposit** to secure the factory purchase. The remaining 30% balance plus handling is paid only when you hold the item physically.
-                    </p>
-                </div>
+            <div class="card card-safe">
+                <span class="card-badge">SECURE OPTION</span>
+                <h3>Zero-Scam Guarantee</h3>
+                <p>Feeling skeptical? Pay a <strong>70% commitment deposit</strong> to secure the factory purchase. The remaining 30% balance plus handling fee is paid only when you hold the item physically in Modomo.</p>
             </div>
 
             <!-- Busy Students Concierge -->
-            <div class="bg-slate-800/40 border border-slate-700/60 p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4">
-                        <i class="fa-solid fa-graduation-cap text-lg"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Too Busy With Classes?</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Exams, assignments, or tight schedules? Just send a picture or describe the item you want. We source, read reviews, find top qualities, and place the order for you.
-                    </p>
-                </div>
+            <div class="card">
+                <h3>Too Busy With Classes?</h3>
+                <p>Exams, assignments, or tight schedules? Just send a picture or describe what you want. We source, read customer reviews, pick top qualities, and execute the entire order sequence.</p>
             </div>
         </div>
     </section>
 
     <!-- Pricing / Slot Fees Structure -->
-    <section class="bg-slate-800/30 border-y border-slate-800 py-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-4">Transparent Pricing, No Hidden Fees</h2>
-            <p class="text-center text-slate-400 text-sm max-w-md mx-auto mb-10">
-                You pay the item value directly via local Naira bank transfer. Here is our flat slot fee handling structure:
-            </p>
+    <section class="pricing-section">
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem;">Transparent Pricing, No Hidden Fees</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">You pay the item value directly via local Naira bank transfer. Here is our flat slot fee handling structure:</p>
 
-            <div class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 flex justify-between items-center">
-                    <div>
-                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Small Gadgets & Accessories</p>
-                        <p class="text-sm text-slate-300">Earbuds, phone cases, cords</p>
-                    </div>
-                    <span class="text-lg font-black text-orange-400">+₦1,500</span>
+        <div class="pricing-grid">
+            <div class="price-box">
+                <div>
+                    <strong style="display:block; font-size:0.85rem; text-transform:uppercase; color:var(--text-muted);">Small Gadgets</strong>
+                    <small style="color:var(--text-muted)">Earbuds, cases, cords</small>
                 </div>
-                <div class="p-5 bg-slate-800 rounded-xl border border-slate-700 flex justify-between items-center">
-                    <div>
-                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Apparel & Heavy Items</p>
-                        <p class="text-sm text-slate-300">Shoes, clothing, bags</p>
-                    </div>
-                    <span class="text-lg font-black text-orange-400">+₦2,500</span>
+                <span>+₦1,500</span>
+            </div>
+            <div class="price-box">
+                <div>
+                    <strong style="display:block; font-size:0.85rem; text-transform:uppercase; color:var(--text-muted);">Apparel & Shoes</strong>
+                    <small style="color:var(--text-muted)">Hoodies, sneakers, bags</small>
                 </div>
+                <span>+₦2,500</span>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 text-center text-xs text-slate-500">
-        <p>© 2026 Temu Procurement Hub - OAU, Ile-Ife. Powered by LilyBoss Enterprises.</p>
+    <footer>
+        <p>© 2026 Temu Procurement Hub - Ile-Ife. Powered by LilyBoss Enterprises.</p>
     </footer>
 
 </body>
