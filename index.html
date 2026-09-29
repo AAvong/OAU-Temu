@@ -130,10 +130,150 @@
         </div>
     </section>
 
+
+    <!-- Interactive Temu Naira Split Calculator -->
+<section class="section" style="border-top: 1px solid var(--border); background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(249, 115, 22, 0.02) 100%);">
+    <h2 class="section-title" style="margin-bottom: 0.5rem;">Calculate Your Split Payment</h2>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">Type the exact product price you see on Temu to see your Campus Gate payment breakdown.</p>
+
+    <div style="max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 2rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);">
+        
+        <!-- Input Fields Group -->
+        <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: bold; margin-bottom: 0.5rem;">Temu App Price (₦)</label>
+            <input type="number" id="temuPrice" placeholder="Enter Naira Price (e.g. 3500)" style="width: 100%; padding: 1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-dark); color: white; font-size: 1.1rem; font-weight: bold; outline: none; transition: border-color 0.2s;" oninput="calculateSplitValues()">
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <label style="display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: bold; margin-bottom: 0.5rem;">Item Classification</label>
+            <select id="itemType" style="width: 100%; padding: 1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-dark); color: white; font-size: 1rem; outline: none;" change="calculateSplitValues()" onchange="calculateSplitValues()">
+                <option value="1500">Small Accessories / Gadget (+₦1,500 slot)</option>
+                <option value="2500">Apparel / Shoes / Heavy (+₦2,500 slot)</option>
+            </select>
+        </div>
+
+        <!-- Dynamic Results Screen -->
+        <div style="background: rgba(15, 23, 42, 0.6); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                <span style="color: var(--text-muted);">1. Pay Now (70% Base Deposit):</span>
+                <span id="depositText" style="font-weight: bold; color: var(--orange);">₦0.00</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; border-bottom: 1px dashed var(--border); padding-bottom: 0.75rem;">
+                <span style="color: var(--text-muted);">2. Remaining Base Balance (30%):</span>
+                <span id="balanceText" style="font-weight: bold; color: var(--text-main);">₦0.00</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 900; pt: 0.25rem;">
+                <span style="color: var(--emerald);">Total Due at Campus Gate:</span>
+                <span id="finalCollectionText" style="color: var(--emerald);">₦0.00</span>
+            </div>
+        </div>
+
+        <p style="font-size: 11px; color: var(--text-muted); text-align: center; font-style: italic;">
+            *Total Due at Campus Gate includes the 30% item balance plus your fixed local handling slot fee.
+        </p>
+    </div>
+</section>
+
+
+    <!-- Payment Guide & Campus Gate Landmark Section -->
+<section class="section" style="border-top: 1px solid var(--border); background: rgba(16, 185, 129, 0.03);">
+    <h2 class="section-title" style="margin-bottom: 1rem;">Payment & Delivery Guide</h2>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; max-width: 600px; margin: 0 auto 3rem auto;">
+        We make your transaction completely secure. Here is how your money and items are processed safely.
+    </p>
+
+    <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <!-- Step 1 Card -->
+        <div class="card" style="border-color: rgba(249, 115, 22, 0.3);">
+            <h4 style="color: var(--orange); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Step 1: Secure Order</h4>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">70% Base Deposit</h3>
+            <p>Pay exactly 70% of the item's app value via local Naira bank transfer. This covers the baseline factory procurement cost so we can safely purchase your item.</p>
+        </div>
+
+        <!-- Step 2 Card -->
+        <div class="card" style="border-color: rgba(16, 185, 129, 0.4);">
+            <h4 style="color: var(--emerald); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Step 2: Arrival</h4>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">30% Balance on Delivery</h3>
+            <p>Once your item arrives in Ife, you pay the remaining 30% balance plus our flat slot handling fee <strong>only when you physically collect your item</strong>.</p>
+        </div>
+
+        <!-- Landmark Card -->
+        <div class="card" style="background: rgba(30, 41, 59, 0.8);">
+            <h4 style="color: #60a5fa; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase;">Pickup Point</h4>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">📍 Campus Gate, OAU</h3>
+            <p>No need to share private home addresses. All batches are securely distributed at the <strong>OAU Campus Gate</strong> landmark during set weekend windows.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Frequently Asked Questions Section -->
+<section class="section" style="border-top: 1px solid var(--border);">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    
+    <div style="max-w: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem;">⏱️ How long does it take for items to arrive in Ife?</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Temu shipping to Nigeria typically takes <strong>10 to 15 days</strong> to clear Lagos customs and arrive at our hub. We update all active pool members on WhatsApp the moment the batch departs the international sorting facility.</p>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem;">💸 Will I pay any extra money for international shipping or customs?</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;"><strong>No.</strong> Your shipping costs are 100% covered within our flat slot handling fee (₦1,500 or ₦2,500). The amount agreed upon during your WhatsApp order checkout is the final amount you pay.</p>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem;">🛡️ What happens if my item gets lost or doesn't arrive?</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Since we manage the entire procurement layer, we assume 100% of the logisitical risk. If an item fails customs check or goes missing in transit, your 70% deposit is <strong>instantly refunded</strong> to your local bank account, no questions asked.</p>
+        </div>
+
+        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+            <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem;">❌ Can I cancel my order after paying the 70% deposit?</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Once our Friday 8:00 PM batch is locked and paid for on Temu, orders cannot be canceled or modified, as the factory ships them immediately. Please ensure you are certain about your items before confirming your deposit link transfer.</p>
+        </div>
+
+    </div>
+</section>
+
+
     <!-- Footer -->
     <footer>
         <p>© 2026 Temu Procurement Hub - Ile-Ife. Powered by LilyBoss Enterprises.</p>
     </footer>
+
+    <!-- Live Split Calculation Script Logic -->
+<script>
+    function calculateSplitValues() {
+        // Read native values from DOM elements
+        const priceInput = document.getElementById('temuPrice').value;
+        const slotFee = parseFloat(document.getElementById('itemType').value);
+        
+        const depositTarget = document.getElementById('depositText');
+        const balanceTarget = document.getElementById('balanceText');
+        const finalTarget = document.getElementById('finalCollectionText');
+
+        // Validation for empty or negative inputs
+        if (!priceInput || priceInput <= 0) {
+            depositTarget.innerText = "₦0.00";
+            balanceTarget.innerText = "₦0.00";
+            finalTarget.innerText = "₦0.00";
+            return;
+        }
+
+        const baseNairaPrice = parseFloat(priceInput);
+
+        // Perform standard 70/30 split logic
+        const depositAmount = baseNairaPrice * 0.70;
+        const balanceAmount = baseNairaPrice * 0.30;
+        const totalAtGate = balanceAmount + slotFee;
+
+        // Render formatted local currency units reactively
+        depositTarget.innerText = "₦" + depositAmount.toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        balanceTarget.innerText = "₦" + balanceAmount.toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        finalTarget.innerText = "₦" + totalAtGate.toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+</script>
 
 </body>
 </html>
